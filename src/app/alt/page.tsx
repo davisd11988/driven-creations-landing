@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import HeroAlt from "@/components/HeroAlt";
 import Problem from "@/components/Problem";
 import Services from "@/components/Services";
 import Story from "@/components/Story";
@@ -10,11 +10,11 @@ import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function AltHome() {
   return (
     <main className="bg-brand-dark min-h-screen overflow-x-hidden">
       <Navbar />
-      <Hero />
+      <HeroAlt />
       <Problem />
       <Services />
       <Story />
