@@ -74,7 +74,7 @@ export default function ScrollCollision() {
           The Clash
         </p>
         <h2 className="font-display font-bold text-5xl md:text-7xl text-white">
-          Drive vs. Deadline
+          Drive vs Deadline
         </h2>
         <p className="text-text-secondary text-lg mt-4 max-w-xl">
           One fights for craft. The other feeds on compromise.
