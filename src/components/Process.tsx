@@ -42,10 +42,10 @@ export default function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'end center'],
   });
 
-  const lineWidth = useTransform(scrollYProgress, [0.2, 0.8], ['0%', '100%']);
+  const lineWidth = useTransform(scrollYProgress, [0.15, 0.85], ['0%', '100%']);
 
   return (
     <section
@@ -150,9 +150,9 @@ function DesktopStep({
   scrollYProgress: ReturnType<typeof useScroll>['scrollYProgress'];
 }) {
   // Map the scroll progress to determine if this step is active
-  // The line progresses from 0.2 to 0.8 of scrollYProgress,
+  // The line progresses from 0.15 to 0.85 of scrollYProgress,
   // so each step activates proportionally within that range
-  const activationPoint = 0.2 + threshold * 0.6;
+  const activationPoint = 0.15 + threshold * 0.7;
   const isActiveMotion = useTransform(
     scrollYProgress,
     [activationPoint - 0.05, activationPoint],
