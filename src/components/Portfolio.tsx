@@ -56,7 +56,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="bg-brand-dark">
-      <div className="section-container !pt-8 md:!pt-12">
+      <div className="section-container !pt-4 md:!pt-6">
         {/* Header */}
         <div className="text-center mb-12">
           <SectionTag>Our Work</SectionTag>
