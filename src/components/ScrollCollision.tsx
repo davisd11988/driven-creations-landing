@@ -49,7 +49,7 @@ export default function ScrollCollision() {
   );
 
   return (
-    <div id="collision" ref={containerRef} className="h-[250vh] relative">
+    <div id="collision" ref={containerRef} className="h-[200vh] relative">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Video Element */}
         <video
