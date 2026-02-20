@@ -43,7 +43,7 @@ export default function HeroAlt2() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="font-display font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-tight"
         >
-          We Defeat Your Deadline.
+          We Defeat Your Deadline
         </motion.h1>
 
         {/* Subheading */}

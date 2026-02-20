@@ -1,35 +1,44 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function ScrollCollision() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const rafRef = useRef<number>(0);
+  const currentTimeRef = useRef<number>(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
 
-  // Scrub video playback mapped to scroll position
-  useEffect(() => {
+  // Smooth video scrubbing with requestAnimationFrame + lerp
+  const smoothUpdate = useCallback(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !video.duration || isNaN(video.duration)) {
+      rafRef.current = requestAnimationFrame(smoothUpdate);
+      return;
+    }
 
-    const unsubscribe = scrollYProgress.on('change', (progress) => {
-      if (video.duration && !isNaN(video.duration)) {
-        video.currentTime = progress * video.duration;
-      }
-    });
+    const targetTime = scrollYProgress.get() * video.duration;
+    // Lerp for smooth interpolation
+    currentTimeRef.current += (targetTime - currentTimeRef.current) * 0.15;
+    video.currentTime = currentTimeRef.current;
 
-    return () => unsubscribe();
+    rafRef.current = requestAnimationFrame(smoothUpdate);
   }, [scrollYProgress]);
+
+  useEffect(() => {
+    rafRef.current = requestAnimationFrame(smoothUpdate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [smoothUpdate]);
 
   // Text visible immediately and stays through most of the scroll
   const textOpacity = useTransform(
     scrollYProgress,
-    [0, 0.05, 0.85, 0.95],
+    [0, 0.05, 0.8, 0.9],
     [0, 1, 1, 0]
   );
 
@@ -40,7 +49,7 @@ export default function ScrollCollision() {
   );
 
   return (
-    <div id="collision" ref={containerRef} className="h-[150vh] relative">
+    <div id="collision" ref={containerRef} className="h-[250vh] relative">
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-black">
         {/* Video Element */}
         <video
@@ -59,7 +68,7 @@ export default function ScrollCollision() {
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 z-10" />
 
-        {/* Text Content Overlay — visible almost immediately */}
+        {/* Text Content Overlay */}
         <motion.div
           className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 text-center"
           style={{ opacity: textOpacity, scale: textScale }}
