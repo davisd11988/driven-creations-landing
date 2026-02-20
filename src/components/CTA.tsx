@@ -100,11 +100,9 @@ export default function CTA() {
               {/* Submit */}
               <div className="col-span-full mt-2">
                 {!submitted ? (
-                  <motion.div className="animate-glow-pulse rounded-full">
-                    <Button variant="primary" size="lg" className="w-full">
-                      Send Message
-                    </Button>
-                  </motion.div>
+                  <Button variant="primary" size="lg" className="w-full">
+                    Send Message
+                  </Button>
                 ) : (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

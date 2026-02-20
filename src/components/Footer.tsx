@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-text-muted text-xs">
-            &copy; 2025 Driven Creations. All rights reserved.
+            &copy; 2026 Driven Creations. All rights reserved.
           </p>
           <p className="text-text-muted text-xs">
             Powered by pixels and passion.
