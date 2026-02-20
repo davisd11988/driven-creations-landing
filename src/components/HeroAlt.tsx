@@ -15,7 +15,7 @@ export default function HeroAlt() {
     >
       {/* Video background — alternate video */}
       <VideoBackground
-        src="/videos/z-video-hero-alt.mp4"
+        src="/videos/hero-vill-2.mp4"
         overlay={true}
       />
 
