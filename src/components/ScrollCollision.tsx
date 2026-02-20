@@ -53,6 +53,9 @@ export default function ScrollCollision() {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/45 z-[5]" />
+
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 z-10" />
 

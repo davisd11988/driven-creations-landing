@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
+import Logo from '@/components/ui/Logo';
 
 const quickLinks = [
   { label: 'Services', href: '#services' },
@@ -22,14 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 - Brand */}
           <div>
-            <div>
-              <span className="font-display font-bold text-xl text-white">
-                DRIVEN
-              </span>
-              <span className="font-display font-light text-xl text-brand-purple-light">
-                CREATIONS
-              </span>
-            </div>
+            <Logo height={36} />
             <p className="text-text-secondary text-sm mt-4 italic">
               Stay Driven.
             </p>

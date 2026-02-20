@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '@/components/ui/Button';
+import Logo from '@/components/ui/Logo';
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -50,13 +51,8 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="#home" className="flex items-center gap-0.5 text-xl">
-              <span className="font-display font-extrabold text-white">
-                DRIVEN
-              </span>
-              <span className="font-display font-medium text-white/70">
-                CREATIONS
-              </span>
+            <a href="#home" className="flex items-center">
+              <Logo height={44} />
             </a>
 
             {/* Desktop nav links */}
