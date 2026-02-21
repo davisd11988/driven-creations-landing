@@ -1,3 +1,4 @@
+import ClientOnly from "@/components/ClientOnly";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
@@ -13,17 +14,19 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="bg-brand-dark min-h-screen overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Problem />
-      <Services />
-      <Story />
-      <ScrollCollision />
-      <Portfolio />
-      <Process />
-      <Testimonials />
-      <CTA />
-      <Footer />
+      <ClientOnly>
+        <Navbar />
+        <Hero />
+        <Problem />
+        <Services />
+        <Story />
+        <ScrollCollision />
+        <Portfolio />
+        <Process />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </ClientOnly>
     </main>
   );
 }

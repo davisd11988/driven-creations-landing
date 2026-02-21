@@ -1,3 +1,4 @@
+import ClientOnly from "@/components/ClientOnly";
 import Navbar from "@/components/Navbar";
 import HeroAlt from "@/components/HeroAlt";
 import Problem from "@/components/Problem";
@@ -13,17 +14,19 @@ import Footer from "@/components/Footer";
 export default function AltHome() {
   return (
     <main className="bg-brand-dark min-h-screen overflow-x-hidden">
-      <Navbar />
-      <HeroAlt />
-      <Problem />
-      <Services />
-      <Story />
-      <ScrollCollision />
-      <Portfolio />
-      <Process />
-      <Testimonials />
-      <CTA />
-      <Footer />
+      <ClientOnly>
+        <Navbar />
+        <HeroAlt />
+        <Problem />
+        <Services />
+        <Story />
+        <ScrollCollision />
+        <Portfolio />
+        <Process />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </ClientOnly>
     </main>
   );
 }

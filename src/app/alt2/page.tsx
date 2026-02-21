@@ -1,3 +1,4 @@
+import ClientOnly from "@/components/ClientOnly";
 import Navbar from "@/components/Navbar";
 import HeroAlt2 from "@/components/HeroAlt2";
 import Problem from "@/components/Problem";
@@ -13,17 +14,19 @@ import Footer from "@/components/Footer";
 export default function Alt2Home() {
   return (
     <main className="bg-brand-dark min-h-screen overflow-x-hidden">
-      <Navbar />
-      <HeroAlt2 />
-      <Problem />
-      <Services />
-      <Story />
-      <ScrollCollision />
-      <Portfolio />
-      <Process />
-      <Testimonials />
-      <CTA />
-      <Footer />
+      <ClientOnly>
+        <Navbar />
+        <HeroAlt2 />
+        <Problem />
+        <Services />
+        <Story />
+        <ScrollCollision />
+        <Portfolio />
+        <Process />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </ClientOnly>
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import ClientOnly from "@/components/ClientOnly";
 import Navbar from "@/components/Navbar";
 import HeroAlt3 from "@/components/HeroAlt3";
 import Problem from "@/components/Problem";
@@ -13,17 +14,19 @@ import Footer from "@/components/Footer";
 export default function Alt3Home() {
   return (
     <main className="bg-brand-dark min-h-screen overflow-x-hidden">
-      <Navbar />
-      <HeroAlt3 />
-      <Problem />
-      <Services />
-      <Story />
-      <ScrollCollision />
-      <Portfolio />
-      <Process />
-      <Testimonials />
-      <CTA />
-      <Footer />
+      <ClientOnly>
+        <Navbar />
+        <HeroAlt3 />
+        <Problem />
+        <Services />
+        <Story />
+        <ScrollCollision />
+        <Portfolio />
+        <Process />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </ClientOnly>
     </main>
   );
 }
