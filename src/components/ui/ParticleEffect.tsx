@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 type Density = 'low' | 'medium' | 'high';
@@ -32,6 +32,9 @@ export default function ParticleEffect({
   density = 'medium',
   colorScheme = 'mixed',
 }: ParticleEffectProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const particles = useMemo(() => {
     const count = densityCount[density];
     const colors = colorScheme === 'purple' ? purpleColors : mixedColors;
@@ -59,6 +62,8 @@ export default function ParticleEffect({
       };
     });
   }, [density, colorScheme]);
+
+  if (!mounted) return <div className="absolute inset-0 overflow-hidden pointer-events-none" />;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">

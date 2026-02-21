@@ -36,6 +36,7 @@ export default function VideoBackground({
         autoPlay
         loop
         playsInline
+        suppressHydrationWarning
         className="w-full h-full object-cover"
       />
       {overlay && (
